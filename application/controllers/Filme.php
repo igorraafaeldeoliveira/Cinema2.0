@@ -16,7 +16,7 @@ class Filme extends CI_Controller {
         //chama o metodo que faz a validção de login de usuario
         //$this->load->model('Usuario_model');
         // $this->Usuario_model->verificaLogin();
-        $this->load->model('Filmes_model');
+        $this->load->model('Filmes_model', 'f');
         $this->load->model('Cinemas_model');
         $this->load->model('Status_model');
         $this->load->model('Classificacoes_model');
@@ -28,7 +28,6 @@ class Filme extends CI_Controller {
     }
 
     public function listar() {
-        $this->load->model('Filmes_model', 'f');
         $data['filmes'] = $this->f->getALL();
         $this->load->view('Header');
         $this->load->view('ListaFilmes', $data);
@@ -36,20 +35,20 @@ class Filme extends CI_Controller {
     }
 
     public function cadastrar() {
-        $this->form_validation->set_rules('nomeFilme', 'nomeFilme', 'required');
-    /*  $this->form_validation->set_rules('cinema', 'cinema', 'required');
-         $this->form_validation->set_rules('classificacao', 'classificacao', 'required');
+        $this->form_validation->set_rules('nomeCinema', 'nomeCinema', 'required');
+        $this->form_validation->set_rules('cinema', 'cinema', 'required');
+        $this->form_validation->set_rules('classificacaoIndicativa', 'classificacaoIndicativa', 'required');
         $this->form_validation->set_rules('genero', 'genero', 'required');
         $this->form_validation->set_rules('diretor', 'diretor', 'required');
-        $this->form_validation->set_rules('status ', 'status ', 'required');
+        $this->form_validation->set_rules('tx_descricao ', 'tx_descricao ', 'required');
         $this->form_validation->set_rules('duracaoFilme', 'duracaoFilme', 'required');
         $this->form_validation->set_rules('sinopse', 'sinopse', 'required');
         $this->form_validation->set_rules('companhia', 'companhia', 'required');
         $this->form_validation->set_rules('atores', 'atores', 'required');
-       $this->form_validation->set_rules('bannerFilme', 'bannerFilme', 'required');*/
+        //$this->form_validation->set_rules('bannerFilme', 'bannerFilme', 'required');
 
 
-        if ($this->form_validation->run() == false) {           
+        if ($this->form_validation->run() == false) {
             $data['status'] = $this->Status_model->getALL();
             $data['cinema'] = $this->Cinemas_model->getALL();
             $data['classificacao'] = $this->Classificacoes_model->getALL();
@@ -57,42 +56,26 @@ class Filme extends CI_Controller {
             $this->load->view('FormFilme', $data);
             $this->load->view('Footer');
         } else {
-            echo 'teste'; exit;
+
             $data = array(
+            
                 'nomeFilme' => $this->input->post('nomeFilme'),
-                'cinema' => $this->input->post('cinema'),
-                'classificacao' => $this->input->post('classificacao'),
+                'cinema' => $this->input->post('nomeCinema'),
+               /* 'classificacao' => $this->input->post('classificacaoIndicativa'),
                 'genero' => $this->input->post('genero'),
                 'diretor' => $this->input->post('diretor'),
-                'status' => $this->input->post('status'),
+                'status' => $this->input->post('tx_descricao'),
                 'duracaoFilme' => $this->input->post('duracaoFilme'),
                 'sinopse' => $this->input->post('sinopse'),
                 'companhia' => $this->input->post('companhia'),
-                'atores' => $this->input->post('atores'),
-                'bannerFilme' => $this->input->post('bannerFilme'),
+                'atores' => $this->input->post('atores'), */
+                    //'bannerFilme' => $this->input->post('bannerFilme'), 
             );
-            $config['upload_path'] = './uploads/';
-            $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_width'] = 1024;
-            $config['max_height'] = 768;
-            $config['encrypt_name'] = true;
-            $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('bannerFilme')) {
-                $error = $this->upload->display_errors();
-                //cria uma sessão com o error e o redireciona
-                $this->session->set_flashdata('mensagem');
-                redirect('Filme/listar'); //Se der certo manda para a lista 
-                exit();
-            } else {
-                //pega o nome do arquivo que foi enviado e adiciona no array $data que
-                $data['bannerFilme'] = $this->upload->data('file_name');
-            }
-            if ($this->Filmes_model->insert($data)) {
-                $this->session->set_flashdata('mensagem', '<div class="alert alert sucees>Sucesso</div>"');
+   print_r($data); exit;
+            if ($this->Cinemas_model->insert($data)) {
                 redirect('Filme/listar');
             } else {
                 redirect('Filme/cadastrar');
-                $this->session->set_flashdata('mensagem', '<div class="alert alert danger>Sucesso</div>"');
             }
         }
     }
@@ -110,12 +93,13 @@ class Filme extends CI_Controller {
             $this->form_validation->set_rules('sinopse', 'sinopse', 'required');
             $this->form_validation->set_rules('companhia', 'companhia', 'required');
             $this->form_validation->set_rules('atores', 'atores', 'required');
-            $this->form_validation->set_rules('bannerFilme', 'bannerFilme', 'required');
+            // $this->form_validation->set_rules('bannerFilme', 'bannerFilme', 'required');
 
             if ($this->form_validation->run() == false) {
                 $data['filmes'] = $this->Filmes_model->getONE($id);
                 $this->load->view('FormFilme', $data);
             } else {
+
                 $data = array(
                     'nomeFilme' => $this->input->post('nomeFilme'),
                     'cinema' => $this->input->post('cinema'),
