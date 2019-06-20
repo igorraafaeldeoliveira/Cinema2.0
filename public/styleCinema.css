@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Author     : igor
+*/
+
+
+.imagemigor{
+    max-width:600px;
+    max-height:300px;
+
+}
+
+.card-img-top {
+
+}
+
+hr{
+    background-color:white;  
+  
+}
+
+element.style {
+    width: 25rem;
+    border: 0px solid #B4030C;
+}
+.sinopse{
+
+
+}
+.FilmeCartazHome{
+
+
+}
+
+#rodape {
+    background-color: #9b1212;
+    margin-top: 15px;
+}
