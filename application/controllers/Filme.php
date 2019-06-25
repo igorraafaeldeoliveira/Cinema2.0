@@ -14,6 +14,8 @@ class Filme extends CI_Controller {
         //chama o construtor da calsse pai (CI_Controller)
         parent:: __construct();
         //chama o metodo que faz a validção de login de usuario 
+        $this->load->helper('text');
+
         $this->load->model('Filmes_model');
         $this->load->model('Cinemas_model');
         $this->load->model('Status_model');
@@ -126,7 +128,7 @@ class Filme extends CI_Controller {
                     'sinopse' => $this->input->post('sinopse'),
                     'companhia' => $this->input->post('companhia'),
                     'atores' => $this->input->post('atores'),
-                ); 
+                );
             }
         } else {
             redirect('Filme/listar');

@@ -18,6 +18,11 @@ and open the template in the editor.
 
 }
 
+
+.BotaoProgramacao{
+    width:20px;
+}
+
 hr{
     background-color:white;  
   
@@ -39,4 +44,10 @@ element.style {
 #rodape {
     background-color: #9b1212;
     margin-top: 15px;
+}
+.Limitador{
+   min-height:30px;
+}
+.Limitador2{
+ min-height:118px;
 }

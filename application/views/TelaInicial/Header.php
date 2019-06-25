@@ -32,45 +32,32 @@ and open the template in the editor.
                     <ul class="navbar-nav mr-auto">
 
                         <!-------------------------------------------------------- FILME -------------------------------------------------------->
-                        <li class="nav-item dropdown">
-                            <a href="#" id="menuProva" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                <font color="white">Filme</font> 
-                            </a>
+                        <li class="nav-item dropdown"> 
                             <div class="dropdown-menu" aria-labelledby="menuFilme">
                                 <a href="<?= $this->config->base_url() . 'Filme/listar'; ?>" class="dropdown-item">Pré-Visualização</a>
-                                <a href="<?= $this->config->base_url() . 'Filme/cadastrar'; ?>"  class="dropdown-item">Cadastro</a>   
                             </div>
                         </li>
-
-                        <!-------------------------------------------------------- CINEMA -------------------------------------------------------->
-                        <li class="nav-item dropdown">
-                            <a href="#" id="menuProva" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                <font color="white">Cinema</font> 
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="menuCinema">
-                                <a href="<?= $this->config->base_url() . 'Cinema/listar'; ?>" class="dropdown-item">Lista</a>
-                                <a href="<?= $this->config->base_url() . 'Cinema/cadastrar'; ?>"  class="dropdown-item">Cadastro</a>   
-                            </div>
-                        </li>
-
-                        <!-------------------------------------------------------- FUNCIONARIOS -------------------------------------------------------->
-                        <li class="nav-item dropdown">
-                            <a href="#" id="menuFuncionario" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                                <font color="white">Funcionarios</font> 
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="menuFuncionario">
-                                <a href="<?= $this->config->base_url() . 'Funcionario/listar'; ?>" class="dropdown-item">Lista</a>
-                                <a href="<?= $this->config->base_url() . 'Funcionario/cadastrar'; ?>"  class="dropdown-item">Cadastro</a>   
-                            </div>
-                        </li>
-
-
-
-
-
 
                 </div>
-                
+                <!-------------------------------------------------------- LOGIN -------------------------------------------------------->
+                <?php
+                if ($this->session->userdata('status') < 1) {
+                    echo '<a class="nav-link btn btn-info" href="' . base_url('Usuario/login') . '">Login</a>';
+                } else {
+                    ?>      
+                    <!-------------------------------------------------------- Campo de  Usuario -------------------------------------------------------->
+                    <ul class="navbar-nav justify-content-end">
+                        <li class="nav-item dropdown pull-left">
+                            <a href="#" id="menuCliente" class="nav-link dropdown-toggle text-light" data-toggle="dropdown"><i class="fas fa-user username"></i> <?= $this->session->userdata('nome'); ?></a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuCliente">
+                                <a class="dropdown-item" href="<?= base_url() . 'Cliente/promocoes' ?>"><i class="fas fa-gift"></i> Promoções para clientes <i class="fas fa-gift"></i></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="<?= base_url() . 'Usuario/sair' ?>"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                            </div>
+                        </li>
+                    </ul>
+                <?php } ?>
+                <!-------------------------------------------------------- LOGIN -------------------------------------------------------->
 
             </nav>
         </div>
