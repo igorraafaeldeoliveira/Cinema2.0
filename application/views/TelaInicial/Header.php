@@ -15,11 +15,10 @@ and open the template in the editor.
     </head>
     <body>     
         <div class="container-expand">
-            <img class="img-fluid" style="border:4px solid #B4030C;" src="<?= base_url() . '\IMAGENS\CABEÇALHO(PRINT).png' ?>">
-
+            <img class="img-fluid" style="border:4px solid #AD0000;" src="<?= base_url() . '\IMAGENS\CABEÇALHO(PRINT).png' ?>">
             <nav  class="navbar navbar-dark bg-dark navbar-expand-md" >
 
-                <img src="" alt=""/>
+
                 <a class="navbar-brand" href="<?= $this->config->base_url(); ?>">
                     <font color='white'>Cine Star</font>
                 </a>
@@ -28,16 +27,13 @@ and open the template in the editor.
                 </button>
 
 
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-
-                        <!-------------------------------------------------------- FILME -------------------------------------------------------->
-                        <li class="nav-item dropdown"> 
-                            <div class="dropdown-menu" aria-labelledby="menuFilme">
-                                <a href="<?= $this->config->base_url() . 'Filme/listar'; ?>" class="dropdown-item">Pré-Visualização</a>
-                            </div>
-                        </li>
-
+                    <!-------------------------------------------------------- FALE CONOSCO -------------------------------------------------------->                      
+                    <div class="" aria-labelledby="menuFaleConosco">
+                        <a class="nav-link " href="<?= $this->config->base_url() . 'FaleConosco/FaleConosco'; ?>"><font color="white">Fale Conosco</font></a>
+            
+                    </div>                      
                 </div>
                 <!-------------------------------------------------------- LOGIN -------------------------------------------------------->
                 <?php
@@ -60,4 +56,5 @@ and open the template in the editor.
                 <!-------------------------------------------------------- LOGIN -------------------------------------------------------->
 
             </nav>
+
         </div>

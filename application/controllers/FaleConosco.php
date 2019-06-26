@@ -8,14 +8,11 @@
 
 defined('BASEPATH') OR exit('No direct scrip acess allowed');
 
-class Cinema extends CI_Controller {
+class FaleConosco extends CI_Controller {
 
     public function __construct() {
         //chama o construtor da calsse pai (CI_Controller)
         parent:: __construct();
-        //chama o metodo que faz a validção de login de usuario
-       // $this->load->model('Usuario_model');
-       // $this->Usuario_model->verificaLogin();
     }
 
     public function index() {
@@ -24,12 +21,40 @@ class Cinema extends CI_Controller {
     }
 
     public function listar() {
-        $this->load->model('FaleConosco_model', 'cm');
-        $data['faleconosco'] = $this->cm->getALL();
-        $this->load->view('Header');
-        $this->load->view('FaleConosco', $data);
-        $this->load->view('Footer');
+        $this->load->view('Telainicial/Header');
+        $this->load->view('FaleConosco');
+        $this->load->view('Telainicial/Footer');
     }
 
-    
+    public function FaleConosco() {
+        $this->form_validation->set_rules('email', 'O e-mail é requirido', 'required');
+        $this->form_validation->set_rules('mensagem', 'A mensagem é requirida', 'required');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('TelaInicial/Header');
+            $this->load->view('FaleConosco');
+            $this->load->view('TelaInicial/Footer');
+        } else {
+            //configuracao para mandar email
+            $this->load->library("email");
+            $config = array(
+                'mailtype' => "html",
+            );
+            $this->email->initialize($config);
+
+            $this->email->from($this->input->post('email'), 'Cliente');
+            $this->email->to('igor.oliveira@aluno.sc.senac.br');
+            $this->email->subject('UM NOVO E-MAIL DE AVALIAÇÃO DA REDE CINE STAR');
+            $this->email->message($this->input->post('mensagem'));
+            if ($this->email->send()) {
+                $this->session->set_flashdata('mensagem', 'Seu e-mail foi enviado com sucesso!');
+                redirect('FaleConosco/FaleConosco');
+            } else {
+                show_error($this->email->print_debugger());
+                $this->session->set_flashdata('mensagem', 'Seu e-mail não pode ser enviado, tente novamente ou espere alguns minutos.');
+                redirect('FaleConosco/FaleConosco');
+            }
+        }
+    }
+
 }

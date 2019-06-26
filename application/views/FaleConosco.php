@@ -1,26 +1,31 @@
-<a href="FaleConosco.php"></a>
-<form>
-    <div class="container-expand">
 
 
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?= $this->config->base_url(); ?>"><a href="">Ir para cadastrar</a></a></li>
-                <li class="breadcrumb-item active" aria-current="page">Lista de Filmes </li>
-            </ol>
-        </nav>
+<?php
+$mensagem = $this->session->flashdata('mensagem');
+echo (isset($mensagem) ? '<div class="alert alert-success" role="alert"> ' . $mensagem . '</div>' : '');
+ echo validation_errors();
+ ?>
 
-        <?php
-        $mensagem = $this->session->flashdata('mensagem');
-        echo (isset($mensagem) ? '<div class="alert alert-success" role="alert"> ' . $mensagem . '</div>' : '');
-        ?>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+<br>
+<br>
+<br>
+<div class="container" style="min-height:400px;">
+
+    <form action="" method="post">
+
+        <h2 class="text-center">Nos de sua sugestão ou melhoria!</h2>
         <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <label for="email">Seu mail:</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
         </div>
-    </div>
-</form>
+
+        <div class="form-group">
+            <label for="mensagem">Informe aqui sua mensagem:</label>
+            <textarea class="form-control" id="mensagem" name="mensagem" rows="3"></textarea>
+            <br>
+            <div class="text-center">
+                <button type = "submit" style="font-size:20px;" class = "btn btn-large btn-outline-success">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>

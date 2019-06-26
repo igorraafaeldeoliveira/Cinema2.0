@@ -47,18 +47,19 @@
             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-                <hr size=”10″></a> 
+            </a> 
         </div>
 
 
     </div>
 </div>
 
-<hr>
 
 <br>
+<hr class="divisao-carousel">
 <div>
     <h1 class="text-center FilmeCartazHome"><font color="#12278a">Filmes na rede:</font></h1>
+
 </div>
 <br>
 

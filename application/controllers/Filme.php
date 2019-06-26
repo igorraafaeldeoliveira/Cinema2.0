@@ -15,7 +15,6 @@ class Filme extends CI_Controller {
         parent:: __construct();
         //chama o metodo que faz a validção de login de usuario 
         $this->load->helper('text');
-
         $this->load->model('Filmes_model');
         $this->load->model('Cinemas_model');
         $this->load->model('Status_model');
