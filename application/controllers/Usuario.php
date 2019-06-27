@@ -31,7 +31,7 @@ class Usuario extends CI_Controller {
                     'status' => $usuario->status
                 );
                 $this->session->set_userdata($data);
-                redirect($this->config->base_url());
+                redirect($this->config->base_url('Filme/index'));
             } else {
                 $this->session->set_flashdata('mensagem', 'Usuário e Senha INCORRETOS!');
                 redirect($this->config->base_url() . 'Usuario/login');
@@ -51,16 +51,16 @@ class Usuario extends CI_Controller {
             $data = array(
                 'email' => $this->input->post('email'),
                 'senha' => $this->input->post('senha'),
-               
             );
             if ($this->Usuario_model->insert($data)) {
-                 $this->session->set_flashdata('mensagem', 'Você foi cadastrado com sucesso, faça login para continuar!!');
+                $this->session->set_flashdata('mensagem', 'Você foi cadastrado com sucesso, faça login para continuar!!');
                 redirect('Usuario/login');
             } else {
                 redirect('Usuario/cadastro');
             }
         }
     }
+
     public function sair() {
         $this->session->sess_destroy();
         redirect($this->config->base_url());

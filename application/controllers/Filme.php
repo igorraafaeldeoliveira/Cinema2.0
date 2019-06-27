@@ -18,6 +18,7 @@ class Filme extends CI_Controller {
         $this->load->model('Filmes_model');
         $this->load->model('Cinemas_model');
         $this->load->model('Status_model');
+        $this->load->model('Usuario_model');
         $this->load->model('Classificacoes_model');
     }
 
@@ -34,6 +35,7 @@ class Filme extends CI_Controller {
     }
 
     public function cadastrar() {
+        $this->Usuario_model->verificaUsuario();
         $this->form_validation->set_rules('nomeFilme', 'Nome do Filme', 'required');
         $this->form_validation->set_rules('cinema', 'Nome do Cinema', 'required');
         $this->form_validation->set_rules('classificacao', 'classificacao', 'required');
@@ -112,6 +114,9 @@ class Filme extends CI_Controller {
 
             if ($this->form_validation->run() == false) {
                 $data['filmes'] = $this->Filmes_model->getONE($id);
+                $data['status'] = $this->Status_model->getALL($id);
+                $data['cinema'] = $this->Cinemas_model->getALL($id);
+                $data['classificacao'] = $this->Classificacoes_model->getALL($id);
                 $this->load->view('Header');
                 $this->load->view('FormFilme', $data);
                 $this->load->view('Footer');
@@ -128,6 +133,11 @@ class Filme extends CI_Controller {
                     'companhia' => $this->input->post('companhia'),
                     'atores' => $this->input->post('atores'),
                 );
+                if ($this->Filmes_model->update($id, $data)) {
+                    redirect('Filme/listar');
+                } else {
+                    redirect('Filme/alterar/' . $id, $data);
+                }
             }
         } else {
             redirect('Filme/listar');

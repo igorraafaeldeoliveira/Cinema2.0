@@ -17,24 +17,36 @@ and open the template in the editor.
         <div class="container-expand">
             <img class="img-fluid" style="border:4px solid #AD0000;" src="<?= base_url() . '\IMAGENS\CABEÇALHO(PRINT).png' ?>">
             <nav  class="navbar navbar-dark bg-dark navbar-expand-md" >
+                <ul class="navbar-nav mr-auto">
+
+                    <a class="navbar-brand" href="<?= $this->config->base_url(); ?>">
+                        <font color='white'>Cine Star</font>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
 
-                <a class="navbar-brand" href="<?= $this->config->base_url(); ?>">
-                    <font color='white'>Cine Star</font>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <!-------------------------------------------------------- Filmes em cartaz -------------------------------------------------------->                      
+                    <li class="nav-item">
+                        <div class="" aria-labelledby="menuProgramação">
+                            <a class="nav-link " href="<?= $this->config->base_url() . 'ExibicaoFilme/index'; ?>"><font color="white">Filmes em cartaz</font></a>
+
+                        </div>                      
+                    </li>
 
 
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-------------------------------------------------------- FALE CONOSCO -------------------------------------------------------->                      
-                    <div class="" aria-labelledby="menuFaleConosco">
-                        <a class="nav-link " href="<?= $this->config->base_url() . 'FaleConosco/FaleConosco'; ?>"><font color="white">Fale Conosco</font></a>
-            
-                    </div>                      
-                </div>
+                    <li class="nav-item">
+                        <div class="" aria-labelledby="menuFaleConosco">
+                            <a class="nav-link " href="<?= $this->config->base_url() . 'FaleConosco/FaleConosco'; ?>"><font color="white">Fale Conosco</font></a>
+
+                        </div>                      
+                    </li>
+
+
+
+                </ul>
                 <!-------------------------------------------------------- LOGIN -------------------------------------------------------->
                 <?php
                 if ($this->session->userdata('status') < 1) {

@@ -65,12 +65,18 @@ and open the template in the editor.
                         </li>
 
 
-
-
-
-
                 </div>
-                
+                <!-------------------------------------------------------- Campo de  Usuario -------------------------------------------------------->
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item dropdown pull-left">
+                        <a href="#" id="menuCliente" class="nav-link dropdown-toggle text-light" data-toggle="dropdown"><i class="fas fa-user username"></i> <?= $this->session->userdata('nome'); ?></a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuCliente">
+                            <a class="dropdown-item" href="<?= base_url() . 'Cliente/promocoes' ?>"><i class="fas fa-gift"></i> Promoções para clientes <i class="fas fa-gift"></i></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<?= base_url() . 'Usuario/sair' ?>"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                        </div>
+                    </li>
+                </ul>
 
             </nav>
         </div>

@@ -43,7 +43,7 @@ class Usuario_model extends CI_Model {
         //verifica se o status esta setado ou nao esta true ou nao tem idUsuario
         if ($status <=  1)  { 
             //redireciona obrigando o login
-            redirect(base_url());
+           redirect(base_url());
         }
     }
 

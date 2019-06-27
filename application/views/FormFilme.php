@@ -1,7 +1,7 @@
 <div class="container-expand ">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?= $this->config->base_url(); ?>">Pré-Visualização</a></li>
+            <li class="breadcrumb-item"><a href="<?= $this->config->base_url('Filme/listar'); ?>">Pré-Visualização</a></li>
             <li class="breadcrumb-item active" aria-current="page">Cadastro de Filmes </li>
         </ol>
     </nav>

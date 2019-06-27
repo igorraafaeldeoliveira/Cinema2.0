@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item "><a href="<?= $this->config->base_url() . 'Filme/cadastrar'; ?>">Ir para cadastrar</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Pré-visualização </li>
+            <li class="breadcrumb-item active" aria-current="page">Pré-visualização</li>
         </ol>
     </nav>
 
@@ -22,8 +22,7 @@
     <div class="row">
 
         <?php
-        echo $this->session->userdata('status');
-        echo $this->session->userdata('email');
+
 
         foreach ($filmes as $f) {
 
@@ -42,15 +41,15 @@
             echo '<div class="Limitador"> <p>Diretor: ' . $f->diretor . ' </p></div>';
             echo '<div class="Limitador"> <p>O filme dura: ' . $f->duracaoFilme . ' min</p></div>';
             echo '<div class="Limitador"> <p>Feito por: ' . $f->companhia . '</p></div>';
-            echo '<div class="Limitador"> <p>Com a presença de: ' . $f->atores . '</p></div>';
+            echo '<div class="Limitador"> <p>Atores: ' . $f->atores . '</p></div>';
             '</ul>';
             echo '<td>' . '<a href="' . $this->config->base_url()
             . 'Filme/alterar/'
-            . $f->nomeFilme . '"> <i class="fas fa-pen"></i> Alterar </a>'
+            . $f->id_filme . '"> <i class="fas fa-pen"></i> Alterar </a>'
             . ' / '
             . '<a href="' . $this->config->base_url()
             . 'Filme/deletar/'
-            . $f->nomeFilme . '"> <i class="fas fa-trash"></i> Deletar </a>'
+            . $f->id_filme . '"> <i class="fas fa-trash"></i> Deletar </a>'
             . '</td>';
             echo '</div>';
             echo '</div>';

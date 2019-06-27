@@ -83,10 +83,9 @@
         echo '<div class="Limitador"> <p>Diretor: ' . $f->diretor . ' </p></div>';
         echo '<div class="Limitador"> <p>O filme dura: ' . $f->duracaoFilme . ' min</p></div>';
         echo '<div class="Limitador"> <p>Feito por: ' . $f->companhia . '</p></div>';
-        echo '<div class="Limitador"> <p>Com a presença de: ' . $f->atores . '</p></div>';
+        echo '<div class="Limitador"> <p>Atores: ' . $f->atores . '</p></div>';
         '</ul>';
-
-        echo'<button type="submit" class="btn btn-outline-success">Programação</button>';
+        echo '<a class="btn btn-outline-success" style="width:300px;" href="' . $this->config->base_url('DetalhesFilme/listar/') . $f->id_filme . '"> Ver mais</a>';
 
 
         echo '</div>';
