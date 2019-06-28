@@ -13,44 +13,41 @@
         <div class="row">
             <!-- Grid column -->
 
-            <div class="col-md-4 py-2 mt-2  text-right rodapeee">
+            <div class="col-md-4 py-2 mt-2  text-right rodapeee mr-0">
 
                 <i  class=" fab fa-whatsapp fa-lg white-text mr-md-5 mr-3 fa-2x text-light"> </i>
 
                 <font color="white"> <a class="text-left" style="margin-left: -11px;">Entre em contato:
                     49-99153700 </a> </font>
             </div> 
-            <div class="col-md-4 py-2 mt-2  text-right rodapeee">    
+            <div class="col-md-4 py-2 mt-2  text-right rodapeee mr-0">    
                 <div class="footer-copyright text-center mt-2"><font color="white">© 2018 Copyright: </font>
                 </div> 
             </div> 
 
 
-            <div class="col-md-4 py-2 mt-2  text-right rodapeee">
-                <!-- Facebook -->
-          
-                    <div class="col-md-4">
-                        <a class="nav-link" href="https://pt-br.facebook.com/">
-                            <i class="fab fa-facebook-f fa-lg white-text  fa-2x text-light"> </i> 
-                        </a> 
-                    </div>
+            <div class="col-md-4 py-2 mt-2 text-right rodapeee mr-0">
+                <!-- Facebook --> 
+                <div class="row">
+                    <a class="nav-link" href="https://pt-br.facebook.com/">
+                        <i class="fab fa-facebook-f fa-lg white-text  fa-2x text-light"> </i> 
+                    </a> 
 
                     <!-- Twitter -->
-                    <div class="col-md-4">
-                        <a class="nav-link"  href="https://twitter.com/?lang=pt">
-                            <i class="fab fa-twitter fa-lg white-text  fa-2x text-light"> </i>
-                        </a>
-                    </div>
+                    <a class="nav-link"  href="https://twitter.com/?lang=pt">
+                        <i class="fab fa-twitter fa-lg white-text  fa-2x text-light"> </i>
+                    </a>
 
                     <!--Instagram-->
-                    <div class="col-md-4">
-                        <a class="nav-link" href="https://www.instagram.com/?hl=pt-br">
-                            <i class="fab fa-instagram fa-lg white-text  fa-2x text-light"> </i>
-                        </a>
-                    </div>
+                    <a class="nav-link" href="https://www.instagram.com/?hl=pt-br">
+                        <i class="fab fa-instagram fa-lg white-text  fa-2x text-light"> </i>
+                    </a>
 
 
+                </div>
             </div>
-            </footer>
-            </body>
-            </html>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -9,8 +9,13 @@ and open the template in the editor.
 
 
 .imagemigor{
-    max-width:600px;
-    max-height:300px;
+    width:500px;
+    height:250px;
+
+}
+.imagemDetalhes{
+    max-width:800px;
+    max-height:600px;
 
 }
 .rodapeee {
@@ -57,4 +62,25 @@ element.style {
 }
 .Limitador2{
     min-height:118px;
+}
+
+.DetalhesINFO{
+  font-family:sans-serif;
+  
+  
+}
+
+.NomeDetalhes{
+    background-color: black;
+ 
+   
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("https://previews.123rf.com/images/roystudio/roystudio1509/roystudio150900109/44894376-white-paper-background-canvas-texture-seamless-pattern.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
 }

@@ -31,7 +31,11 @@ class Usuario extends CI_Controller {
                     'status' => $usuario->status
                 );
                 $this->session->set_userdata($data);
-                redirect($this->config->base_url('Filme/index'));
+                if ($this->session->userdata('status') == 2) {
+                    redirect($this->config->base_url('Filme/index'));
+                } else {
+                    redirect($this->config->base_url());
+                }
             } else {
                 $this->session->set_flashdata('mensagem', 'Usuário e Senha INCORRETOS!');
                 redirect($this->config->base_url() . 'Usuario/login');

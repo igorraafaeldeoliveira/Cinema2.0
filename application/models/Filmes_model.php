@@ -27,6 +27,7 @@ class Filmes_model extends CI_Model {
         $this->db->join('statusfilme', 'filme.STATUS=statusfilme.id_status', 'inner');
         $this->db->join('cinema', 'filme.cinema=cinema.id_cinema', 'inner');
         $this->db->join('classificacao', 'filme.classificacao=classificacao.id', 'inner');
+        $this->db->where('filme.id_filme',$id);
         $query = $this->db->get();
         return $query->row(0);
     }

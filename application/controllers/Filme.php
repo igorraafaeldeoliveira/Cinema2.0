@@ -133,6 +133,22 @@ class Filme extends CI_Controller {
                     'companhia' => $this->input->post('companhia'),
                     'atores' => $this->input->post('atores'),
                 );
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_whidth'] = 1024;
+                $config['max_height'] = 768;
+                $config['encrypt_name'] = true;
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('userFile')) {
+                    $error = $this->upload->display_errors();
+                    //cria uma sessão com o error e redireciona
+                    $this->session->set_flashdata('mensagem', $error);
+                    redirect('Filme/listar'); //se der certo manda para a lista
+                    exit();
+                } else {
+                    $data['bannerFilme'] = $this->upload->data('file_name');
+                }
+
                 if ($this->Filmes_model->update($id, $data)) {
                     redirect('Filme/listar');
                 } else {

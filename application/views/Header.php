@@ -20,7 +20,7 @@ and open the template in the editor.
             <nav  class="navbar navbar-dark bg-dark navbar-expand-md" >
 
                 <img src="" alt=""/>
-                <a class="navbar-brand" href="<?= $this->config->base_url(); ?>">
+                <a class="navbar-brand" href="<?= $this->config->base_url('Filme/index'); ?>">
                     <font color='white'>Cine Star</font>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
